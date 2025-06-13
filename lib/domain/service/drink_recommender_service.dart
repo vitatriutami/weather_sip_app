@@ -15,15 +15,15 @@ class DrinkRecommenderService {
     if (temp <= 20) {
       drinkTemp = DrinkTemperature.hot;
       size = "500ml";
-      imagePath = "assets/hot_large.jpg";
+      imagePath = "assets/images/hot_large.jpg";
     } else if (temp <= 30) {
       drinkTemp = DrinkTemperature.warm;
       size = "350ml";
-      imagePath = "assets/warm_medium.jpg";
+      imagePath = "assets/images/warm_medium.jpg";
     } else {
       drinkTemp = DrinkTemperature.cold;
       size = "500ml";
-      imagePath = "assets/cold_large.jpg";
+      imagePath = "assets/images/cold_large.jpg";
     }
 
     return DrinkRecommendationEntity(

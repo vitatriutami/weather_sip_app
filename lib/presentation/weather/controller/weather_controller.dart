@@ -8,19 +8,28 @@ import 'package:weather_sip_app/domain/entity/user_preference_entity.dart';
 import 'package:weather_sip_app/domain/entity/weather_entity.dart';
 
 class WeatherController extends GetxController {
-  final String userName;
-  final String userDrink;
-
   final temperature = 0.0.obs;
   final isLoading = true.obs;
   final drinkRecommendation = "".obs;
+  final userDrinkImage = "".obs;
+  final Map<String, String> drinkImageMap = {
+    "Kopi": "assets/images/item_1.png",
+    "Teh": "assets/images/item_2.png",
+    "Coklat": "assets/images/item_3.png",
+    "Matcha": "assets/images/item_4.png",
+  };
+
   final imagePath = "".obs;
 
-  WeatherController({required this.userName, required this.userDrink});
+  late final String userName;
+  late final String userDrink;
 
   @override
   void onInit() {
     super.onInit();
+    final args = Get.arguments as Map<String, dynamic>;
+    userName = args['user_name'];
+    userDrink = args['user_drink'];
     _savePreferenceToStorage();
     fetchWeather();
   }
@@ -70,6 +79,11 @@ class WeatherController extends GetxController {
 
     drinkRecommendation.value =
         "${result.drinkName} ${result.readableTemperature} - Ukuran ${result.size}";
+
+    userDrinkImage.value =
+        drinkImageMap[result.drinkName] ??
+        ''; // fallback ke '' jika tidak ketemu
+
     imagePath.value = result.imagePath;
   }
 }
