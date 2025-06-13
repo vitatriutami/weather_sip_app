@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:weather_sip_app/domain/service/drink_recommender_service.dart';
 import 'package:weather_sip_app/domain/entity/user_preference_entity.dart';
@@ -36,7 +36,7 @@ class WeatherController extends GetxController {
       isLoading.value = true;
 
       const city = "Jakarta";
-      const apiKey = "dcea7cca42c2b1fa316d06a462060282";
+      final apiKey = dotenv.env['WEATHER_API_KEY'];
 
       final url = Uri.parse(
         "https://api.openweathermap.org/data/2.5/weather?q=$city&appid=$apiKey&units=metric",

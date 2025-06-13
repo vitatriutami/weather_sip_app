@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'controller/history_controller.dart';
-import '../../domain/entity/drink_recommendation_entity.dart';
 
 class HistoryScreen extends GetView<HistoryController> {
   @override
