@@ -99,6 +99,11 @@ class _WeatherScreenState extends State<WeatherScreen>
                 ),
                 const SizedBox(height: 10),
                 Text(
+                  "Location: ${controller.cityName.value}",
+                  style: const TextStyle(fontSize: 16),
+                ),
+                const SizedBox(height: 10),
+                Text(
                   "Now temperature: ${controller.temperature}°C",
                   style: const TextStyle(fontSize: 20),
                 ),
