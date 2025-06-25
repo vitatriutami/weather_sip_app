@@ -52,7 +52,7 @@ class HistoryScreen extends GetView<HistoryController> {
                     const Divider(),
                   ],
                 );
-              }).toList(),
+              }),
             ],
           );
         }),
