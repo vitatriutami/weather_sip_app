@@ -1,4 +1,3 @@
-// lib/domain/entity/weather_entity.dart
 class WeatherEntity {
   final String city;
   final double temperature;
